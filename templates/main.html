@@ -1,0 +1,56 @@
+<!doctype html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Прогнозирование параметров сварного шва</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+    <fieldset>     
+        <p style="..">
+        Прогнозирование параметров сварного шва
+        </p>
+        <small>Величина сварочного тока (IW), А</small>
+        <input type = "text"  class="form-control" name = "IW" placeholder = "47" required="required" />
+        <br>
+        <br>
+
+        <small>Ток фокусировки электронного пучка (IF), А</small>
+        <input type = "text" name = "IF" placeholder = "139" required="required" />
+        <br>
+        <br>
+
+        <small>Скорость сварки (VW), мм/с</small>
+        <input type = "text" name = "WV" placeholder = "4.5" required="required" />
+        <br>
+        <br>
+
+        <small>Фокусное расстояние (FP), мм</small>
+        <input type = "text" name = "FP" placeholder = "80" required="required" />
+        <br>
+        <br>
+
+        <button type = 'submit'>Ввод</button>
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+        <br> 
+        <p style="font-size:50px">
+        Параметры сварного шва, мм
+        </p>
+        <p style="font-size:50px"> {{result}}</p>
+    {% endif %}
+</div>
