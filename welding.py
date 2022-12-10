@@ -63,12 +63,8 @@ def msg(uuid):
 
     x_scaled = scaler.transform([x['params']])
     prediction = model.predict(x_scaled)
-    print(prediction, type(prediction))
-
+    #print(prediction, type(prediction))
     return jsonify({uuid:str(prediction[0])})
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=False, host = '0.0.0.0')
